@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome to MyBudgetAI</h1>
+    <p class="lead">The smart way to track and analyze your expenses</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                Upload Bank Statement
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">Select CSV file</label>
+                        <input type="file" class="form-control" id="fileInput" name="file" accept=".csv">
+                        <div class="form-text">Only CSV format is supported</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload & Analyze</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
